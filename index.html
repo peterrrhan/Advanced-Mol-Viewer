@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Molecular Viewer</title>
+    
+    <!-- 引入外部库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    
+    <!-- 引入CSS文件 -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/viewer.css">
+    <link rel="stylesheet" href="css/controls.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Advanced Molecular Viewer</h1>
+            
+            <div class="upload-area" id="drop-area">
+                <div class="upload-icon">📁</div>
+                <p>Drag and drop molecular file here or click to upload</p>
+                <div class="file-format">
+                    <span class="format-badge active">MOL/MOL2</span>
+                    <span class="format-badge">PDB</span>
+                </div>
+                <input type="file" id="file-input" accept=".mol,.mol2,.pdb,.txt" />
+                <button class="btn" id="upload-btn">
+                    <span class="btn-icon">📂</span>Select File
+                </button>
+            </div>
+            
+            <div class="status" id="status-message">Waiting for molecular file upload...</div>
+            
+            <div class="viewer-area" id="molecule-viewer">
+                <h2>Molecule 3D View</h2>
+                
+                <!-- 3Dmol查看器容器 -->
+                <div id="molecule-display">
+                    <div class="empty-state">
+                        <div class="upload-icon">🧪</div>
+                        <p>Please upload a molecular file to display structure</p>
+                    </div>
+                </div>
+                
+                <!-- 分子可视化控制面板 -->
+                <div id="viz-controls" class="viz-controls" style="display: none;">
+                    <button class="viz-button" id="style-stick">Stick</button>
+                    <button class="viz-button" id="style-line">Line</button>
+                    <button class="viz-button" id="style-sphere">Sphere</button>
+                    <button class="viz-button" id="style-cartoon">Cartoon</button>
+                    <button class="viz-button" id="recenter">Recenter</button>
+                    <button class="viz-button" id="labels-toggle">Toggle Labels</button>
+                </div>
+                
+                <div id="targets-container" style="display: none;">
+                    <div class="section-header">
+                        <h2>Available Targets</h2>
+                        <span class="count-badge" id="target-count">0 items</span>
+                    </div>
+                    <ul class="target-list" id="target-list"></ul>
+                    <div class="action-buttons">
+                        <button class="btn" id="add-selected-btn" disabled>
+                            <span class="btn-icon">➕</span>Add Selected Targets
+                        </button>
+                        <button class="btn" id="select-all-btn">
+                            <span class="btn-icon">✓</span>Select All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="section-header">
+                <h2>Selected Targets List</h2>
+                <span class="count-badge" id="result-count">0 items</span>
+            </div>
+            
+            <div id="results-list">
+                <div class="empty-state">
+                    <div class="upload-icon">📋</div>
+                    <p>No targets added yet</p>
+                </div>
+            </div>
+            
+            <div class="export-options">
+                <h2>Export Options</h2>
+                <p>Export selected targets as a text file</p>
+                <button class="btn btn-success" id="export-btn" disabled>
+                    <span class="btn-icon">📤</span>Export as TXT File
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入JavaScript文件 -->
+    <script src="js/file-handlers.js"></script>
+    <script src="js/mol-viewer.js"></script>
+    <script src="js/target-manager.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
