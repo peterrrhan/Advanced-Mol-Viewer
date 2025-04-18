@@ -13,23 +13,27 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/viewer.css">
     <link rel="stylesheet" href="css/controls.css">
+    <link rel="stylesheet" href="css/selection-mode.css">
 </head>
 <body>
     <div class="container">
         <div class="left-panel">
             <h1>Advanced Molecular Viewer</h1>
             
+            <!-- 修改上传区域使其更扁平 -->
             <div class="upload-area" id="drop-area">
                 <div class="upload-icon">📁</div>
                 <p>Drag and drop molecular file here or click to upload</p>
-                <div class="file-format">
-                    <span class="format-badge active">MOL/MOL2</span>
-                    <span class="format-badge">PDB</span>
+                <div class="file-actions">
+                    <div class="file-format">
+                        <span class="format-badge active">MOL/MOL2</span>
+                        <span class="format-badge">PDB</span>
+                    </div>
+                    <input type="file" id="file-input" accept=".mol,.mol2,.pdb,.txt" />
+                    <button class="btn" id="upload-btn">
+                        <span class="btn-icon">📂</span>Select
+                    </button>
                 </div>
-                <input type="file" id="file-input" accept=".mol,.mol2,.pdb,.txt" />
-                <button class="btn" id="upload-btn">
-                    <span class="btn-icon">📂</span>Select File
-                </button>
             </div>
             
             <div class="status" id="status-message">Waiting for molecular file upload...</div>
@@ -53,6 +57,29 @@
                     <button class="viz-button" id="style-cartoon">Cartoon</button>
                     <button class="viz-button" id="recenter">Recenter</button>
                     <button class="viz-button" id="labels-toggle">Toggle Labels</button>
+                </div>
+                
+                <!-- 选择模式容器 -->
+                <div class="selection-mode-container">
+                    <div class="section-header">
+                        <h2>Selection Mode</h2>
+                    </div>
+                    <div class="selection-mode-toggle" id="selection-mode-toggle">
+                        <button class="selection-mode-btn active" id="list-mode">
+                            <span class="btn-icon">📋</span>List Selection
+                        </button>
+                        <button class="selection-mode-btn" id="click-mode">
+                            <span class="btn-icon">🖱️</span>Click Selection
+                        </button>
+                    </div>
+                    <div class="selection-mode-info">
+                        <p id="selection-mode-description">
+                            Select atoms from the list below. Click on an atom to select/deselect it.
+                        </p>
+                    </div>
+                    <button class="btn" id="clear-selection">
+                        <span class="btn-icon">🗑️</span>Clear Selection
+                    </button>
                 </div>
                 
                 <div id="targets-container" style="display: none;">

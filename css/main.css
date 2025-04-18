@@ -49,30 +49,35 @@ body {
 }
 
 h1 {
-    font-size: 32px;
-    margin-bottom: 25px;
+    font-size: 28px; /* 减小了标题大小 */
+    margin-bottom: 15px; /* 减少了标题下边距 */
     color: #111827;
     font-weight: 700;
 }
 
 h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 20px; /* 减小了二级标题大小 */
+    margin-bottom: 15px; /* 减少了标题下边距 */
     color: #374151;
     font-weight: 600;
     border-bottom: 2px solid var(--gray-medium);
-    padding-bottom: 10px;
+    padding-bottom: 5px; /* 减少了标题下内边距 */
 }
 
+/* 修改上传区域使其更扁平 */
 .upload-area {
-    border: 3px dashed var(--gray-medium);
-    padding: 40px;
+    border: 2px dashed var(--gray-medium);
+    padding: 15px; /* 减少了内边距 */
     text-align: center;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* 减少了下边距 */
     border-radius: var(--border-radius);
     transition: all 0.3s;
     background-color: var(--gray-light);
+    display: flex; /* 使用弹性布局 */
+    align-items: center; /* 垂直居中 */
+    flex-wrap: wrap; /* 允许在小屏幕上换行 */
+    justify-content: space-between; /* 两端对齐 */
 }
 
 .upload-area:hover {
@@ -86,15 +91,26 @@ h2 {
 }
 
 .upload-area p {
-    margin: 15px 0;
+    margin: 5px 0; /* 减少段落边距 */
     color: var(--gray-dark);
-    font-size: 18px;
+    font-size: 16px; /* 减小字体大小 */
+    flex: 1; /* 弹性布局 */
+    min-width: 200px; /* 最小宽度 */
 }
 
 .upload-icon {
-    font-size: 48px;
+    font-size: 32px; /* 减小图标大小 */
     color: var(--gray-dark);
-    margin-bottom: 15px;
+    margin: 0 15px; /* 调整图标边距 */
+    flex: 0 0 auto; /* 固定大小 */
+}
+
+.file-actions {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+    justify-content: flex-end;
 }
 
 #file-input {
@@ -102,8 +118,8 @@ h2 {
 }
 
 .status {
-    margin: 20px 0;
-    padding: 15px;
+    margin: 15px 0; /* 减少了状态区域的边距 */
+    padding: 10px; /* 减少了内边距 */
     border-radius: var(--border-radius);
     background-color: #f3f4f6;
     color: var(--gray-dark);
@@ -121,10 +137,10 @@ h2 {
 }
 
 .viewer-area {
-    margin: 30px 0;
+    margin: 20px 0; /* 减少了上下边距 */
     border: 1px solid var(--gray-medium);
     border-radius: var(--border-radius);
-    padding: 25px;
+    padding: 20px; /* 减少内边距 */
     min-height: 400px;
     background-color: white;
     box-shadow: var(--shadow-sm);
@@ -134,7 +150,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* 减少了下边距 */
 }
 
 .count-badge {
@@ -147,19 +163,19 @@ h2 {
 
 .empty-state {
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px; /* 减少了内边距 */
     color: var(--gray-dark);
 }
 
 .empty-state p {
-    margin-top: 15px;
+    margin-top: 10px; /* 减少了上边距 */
     font-size: 16px;
 }
 
 .file-format {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin: 10px 0; /* 调整了边距 */
     gap: 15px;
 }
 
@@ -194,4 +210,42 @@ h2 {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #a0a0a0;
+}
+
+/* 调整上传按钮 */
+#upload-btn {
+    padding: 5px 10px; /* 减小了按钮内边距 */
+    font-size: 14px; /* 减小了字体大小 */
+    margin-left: 10px;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn:disabled {
+    background-color: var(--gray-medium);
+    cursor: not-allowed;
+}
+
+.btn-icon {
+    margin-right: 5px;
+}
+
+.btn-success {
+    background-color: var(--success-color);
 }

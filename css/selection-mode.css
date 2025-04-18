@@ -1,0 +1,298 @@
+/* 选择模式相关样式
+   Selection mode related styles */
+
+   .selection-mode-container {
+    margin: 30px 0 20px 0;
+    padding: 20px;
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-medium);
+    clear: both; /* 确保不与前面的元素重叠 */
+}
+
+.selection-mode-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.selection-mode-btn {
+    flex: 1;
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.selection-mode-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.selection-mode-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.selection-mode-info {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #dbeafe;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.selection-mode-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #1e40af;
+}
+
+/* 点选模式下的原子高亮样式
+   Atom highlight styles in click selection mode */
+.mol-container {
+    position: relative;
+}
+
+/* 原子列表样式优化
+   Atom list style optimization */
+.target-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    padding: 0;
+    margin: 0 0 15px 0;
+    list-style: none;
+    background-color: white;
+}
+
+.target-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--gray-medium);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.target-item:last-child {
+    border-bottom: none;
+}
+
+.target-item:hover {
+    background-color: #f9fafb;
+}
+
+.target-item.selected {
+    background-color: #dbeafe;
+}
+
+.atom-symbol {
+    font-weight: 600;
+    margin-right: 5px;
+    min-width: 30px;
+}
+
+.atom-id {
+    font-weight: 500;
+    margin-right: 15px;
+    min-width: 40px;
+}
+
+.atom-coords {
+    color: var(--gray-dark);
+    font-size: 14px;
+    font-family: monospace;
+}
+
+/* 结果列表样式优化
+   Results list style optimization */
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.result-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-id {
+    font-weight: 600;
+    min-width: 40px;
+}
+
+.result-type {
+    background-color: #dbeafe;
+    color: #1e40af;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.result-coords {
+    color: var(--gray-dark);
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.result-remove {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.result-remove:hover {
+    background-color: #fecaca;
+    transform: scale(1.1);
+}
+
+/* 清除选择按钮
+   Clear selection button */
+#clear-selection {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+#clear-selection:hover {
+    background-color: #e5e7eb;
+}
+
+/* 可视化控制面板样式优化
+   Visualization control panel style optimization */
+.viz-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-medium);
+}
+
+.viz-button {
+    padding: 8px 15px;
+    background-color: white;
+    border: 1px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.viz-button:hover {
+    background-color: #f3f4f6;
+}
+
+.viz-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* 分子显示区域样式优化 - 已修改高度更大
+   Molecule display area style optimization - height increased further */
+#molecule-display {
+    width: 100%;
+    height: 700px !important; /* 进一步增加高度 */
+    min-height: 700px; /* 更大的最小高度 */
+    border: 1px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#gldiv {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.molecule-info {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-medium);
+}
+
+.molecule-info p {
+    margin: 5px 0;
+}
+
+/* 防止3D视图被压缩
+   Prevent 3D view from being compressed */
+.mol-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.viewer-area {
+    margin-bottom: 40px; /* 增加底部边距 */
+}
+
+/* 响应式设计优化
+   Responsive design optimization */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .left-panel, .right-panel {
+        width: 100%;
+    }
+    
+    .right-panel {
+        margin-top: 30px;
+    }
+    
+    /* 小屏幕上也保持较大的分子显示区域 */
+    #molecule-display {
+        height: 600px !important;
+    }
+}
