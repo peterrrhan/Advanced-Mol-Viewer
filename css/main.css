@@ -249,3 +249,28 @@ h2 {
 .btn-success {
     background-color: var(--success-color);
 }
+
+/* 用户操作指南样式
+   User instruction styles */
+   .user-instruction {
+    margin: 15px 0;
+    padding: 12px 15px;
+    background-color: #ffe8cc;
+    border-left: 4px solid #ff9900;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+}
+
+.instruction-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #ff9900;
+}
+
+.user-instruction p {
+    margin: 0;
+    font-size: 14px;
+    color: #663c00;
+    line-height: 1.5;
+}
